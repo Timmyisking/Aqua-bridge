@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AquaBridge Africa</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#020D1A;color:#E8F4FD;overflow-x:hidden}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 2rem;border-bottom:0.5px solid rgba(55,138,221,0.2);position:sticky;top:0;background:rgba(2,13,26,0.95);z-index:100}
+.logo{font-family:'Playfair Display',serif;font-size:20px;color:#85B7EB}.logo span{color:#378ADD}
+.nav-cta{background:#185FA5;color:#E6F1FB;border:none;padding:8px 20px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer}
+.nav-cta:hover{background:#378ADD}
+.hero{text-align:center;padding:5rem 2rem 4rem}
+.badge{display:inline-block;background:rgba(55,138,221,0.15);color:#85B7EB;border:0.5px solid rgba(55,138,221,0.35);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.2;color:#E8F4FD;margin-bottom:1.25rem;max-width:700px;margin-left:auto;margin-right:auto}
+h1 em{font-style:normal;color:#378ADD}
+.sub{font-size:16px;color:#B5D4F4;max-width:520px;margin:0 auto 2.5rem;line-height:1.7;font-weight:300}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:#185FA5;color:#E6F1FB;border:none;padding:12px 28px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer}
+.btn-primary:hover{background:#378ADD}
+.btn-outline{background:transparent;color:#85B7EB;border:0.5px solid rgba(55,138,221,0.4);padding:12px 28px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:15px;cursor:pointer}
+.btn-outline:hover{border-color:#378ADD}
+.divider{height:0.5px;background:rgba(55,138,221,0.15);margin:0 2rem}
+.stats{display:flex;justify-content:center;gap:3rem;padding:2.5rem 2rem;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:28px;color:#378ADD;font-weight:700}
+.stat-label{font-size:12px;color:#B5D4F4;font-weight:300;margin-top:4px}
+section.wrap{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+.sec-label{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#378ADD;margin-bottom:.75rem}
+h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2rem);color:#E8F4FD;margin-bottom:.75rem}
+.sec-desc{font-size:15px;color:#B5D4F4;font-weight:300;max-width:560px;line-height:1.7;margin-bottom:2.5rem}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.fcard{background:rgba(24,95,165,0.08);border:0.5px solid rgba(55,138,221,0.2);border-radius:12px;padding:1.5rem}
+.fcard:hover{border-color:rgba(55,138,221,0.5);background:rgba(24,95,165,0.14)}
+.ficon{width:36px;height:36px;background:rgba(55,138,221,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:16px}
+.ftitle{font-size:15px;font-weight:500;color:#E8F4FD;margin-bottom:6px}
+.fdesc{font-size:13px;color:#B5D4F4;font-weight:300;line-height:1.6}
+.toggle-row{display:flex;align-items:center;gap:12px;margin-bottom:2rem;font-size:14px;color:#B5D4F4}
+.toggle-sw{width:44px;height:24px;background:#185FA5;border-radius:12px;position:relative;cursor:pointer;border:none;flex-shrink:0}
+.toggle-sw::after{content:'';width:18px;height:18px;background:#E8F4FD;border-radius:50%;position:absolute;top:3px;left:3px;transition:transform 0.2s}
+.toggle-sw.yearly::after{transform:translateX(20px)}
+.save-badge{background:rgba(55,138,221,0.2);color:#85B7EB;font-size:11px;padding:2px 8px;border-radius:4px;font-weight:500}
+.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:2rem}
+.plan{background:rgba(24,95,165,0.08);border:0.5px solid rgba(55,138,221,0.2);border-radius:12px;padding:2rem 1.5rem;position:relative}
+.plan:hover{border-color:rgba(55,138,221,0.5)}
+.plan.featured{border:2px solid #185FA5;background:rgba(24,95,165,0.14)}
+.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#185FA5;color:#E6F1FB;font-size:11px;font-weight:500;padding:4px 14px;border-radius:20px;white-space:nowrap}
+.plan-name{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:#85B7EB;margin-bottom:.75rem}
+.plan-price{font-family:'Playfair Display',serif;font-size:2rem;color:#E8F4FD;font-weight:700;margin-bottom:4px}
+.plan-price span{font-family:'DM Sans',sans-serif;font-size:13px;color:#B5D4F4;font-weight:300}
+.plan-desc{font-size:13px;color:#B5D4F4;font-weight:300;margin-bottom:1.25rem;line-height:1.6}
+.plan-features{list-style:none;margin-bottom:1.75rem}
+.plan-features li{font-size:13px;color:#B5D4F4;padding:5px 0;display:flex;align-items:center;gap:8px}
+.plan-features li::before{content:'';width:6px;height:6px;border-radius:50%;background:#378ADD;flex-shrink:0}
+.form-box{background:rgba(24,95,165,0.08);border:0.5px solid rgba(55,138,221,0.2);border-radius:16px;padding:3rem 2rem;text-align:center;max-width:560px;margin:0 auto}
+.form-desc{font-size:14px;color:#B5D4F4;margin-bottom:1.75rem;font-weight:300}
+.field{margin-bottom:12px;text-align:left}
+.field label{display:block;font-size:12px;color:#85B7EB;margin-bottom:5px;font-weight:500;letter-spacing:0.5px}
+.field input,.field select{width:100%;background:rgba(2,13,26,0.6);border:0.5px solid rgba(55,138,221,0.3);border-radius:8px;padding:10px 14px;font-family:'DM Sans',sans-serif;font-size:14px;color:#E8F4FD;outline:none}
+.field input::placeholder{color:rgba(181,212,244,0.4)}
+.field input:focus,.field select:focus{border-color:#378ADD}
+.field select option{background:#020D1A}
+.ab-submit{width:100%;background:#185FA5;color:#E6F1FB;border:none;padding:13px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;margin-top:8px}
+.ab-submit:hover{background:#378ADD}
+.success-msg{display:none;background:rgba(29,158,117,0.12);border:0.5px solid rgba(29,158,117,0.3);border-radius:8px;padding:12px;font-size:14px;color:#9FE1CB;margin-top:12px}
+footer{text-align:center;padding:2rem;border-top:0.5px solid rgba(55,138,221,0.1);font-size:12px;color:rgba(181,212,244,0.4);margin-top:3rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Aqua<span>Bridge</span> Africa</div>
+  <button class="nav-cta" onclick="document.getElementById('subscribe').scrollIntoView({behavior:'smooth'})">Get Early Access</button>
+</nav>
+
+<div class="hero">
+  <div class="badge">Niger Delta's Digital Trade Platform</div>
+  <h1>The Future of <em>Aquatic Trade</em> Starts Here</h1>
+  <p class="sub">AquaBridge Africa connects fishers, aquaculture farmers, processors, and institutional buyers across the Niger Delta — digitizing a fragmented industry worth billions.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="document.getElementById('subscribe').scrollIntoView({behavior:'smooth'})">Join the Waitlist</button>
+    <button class="btn-outline" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Learn More</button>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">3M+</div><div class="stat-label">Metric tonnes consumed annually</div></div>
+  <div class="stat"><div class="stat-num">Delta State</div><div class="stat-label">Phase 1 launch region</div></div>
+  <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Target suppliers at launch</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Digital & traceable</div></div>
+</div>
+
+<div class="divider"></div>
+
+<section class="wrap" id="features">
+  <div class="sec-label">What We Offer</div>
+  <h2>Everything the aquatic trade needs, in one place</h2>
+  <p class="sec-desc">From verified supplier onboarding to export-ready documentation, AquaBridge Africa brings structure, transparency and technology to the Niger Delta's aquatic economy.</p>
+  <div class="features">
+    <div class="fcard"><div class="ficon">🐟</div><div class="ftitle">Digital Marketplace</div><div class="fdesc">Verified supplier listings for raw, processed, and feed products with structured pricing and buyer verification.</div></div>
+    <div class="fcard"><div class="ficon">🔗</div><div class="ftitle">Trade Matching Engine</div><div class="fdesc">Bulk order coordination, scheduled deliveries, and institutional contracting in one streamlined platform.</div></div>
+    <div class="fcard"><div class="ficon">🚛</div><div class="ftitle">Logistics Coordination</div><div class="fdesc">Cold-chain partnerships and third-party logistics to reduce post-harvest losses across the supply chain.</div></div>
+    <div class="fcard"><div class="ficon">🔒</div><div class="ftitle">Payment & Escrow</div><div class="fdesc">Secure transactions with automatic commission deduction. No more informal middlemen eating your margins.</div></div>
+    <div class="fcard"><div class="ficon">📊</div><div class="ftitle">Traceability & Data</div><div class="fdesc">Catch origin tracking, export readiness documentation, and price trend analytics for smarter decisions.</div></div>
+    <div class="fcard"><div class="ficon">🌍</div><div class="ftitle">Export Facilitation</div><div class="fdesc">Aligned with NEPC ambitions — helping Nigerian aquatic products reach global markets.</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="wrap" id="pricing">
+  <div class="sec-label">Subscription Plans</div>
+  <h2>Simple, transparent pricing</h2>
+  <p class="sec-desc">Choose the plan that fits your role in the aquatic supply chain. Save 20% when you pay yearly.</p>
+  <div class="toggle-row">
+    <span id="lbl-monthly" style="color:#E8F4FD;font-weight:500">Monthly</span>
+    <button class="toggle-sw" id="billingToggle" onclick="toggleBilling()"></button>
+    <span id="lbl-yearly">Yearly</span>
+    <span class="save-badge">Save 20%</span>
+  </div>
+  <div class="pricing">
+    <div class="plan">
+      <div class="plan-name">Supplier</div>
+      <div class="plan-price" id="price-supplier">₦2,000<span id="per-supplier"> / month</span></div>
+      <div class="plan-desc">For fishers and aquaculture farmers ready to reach verified buyers.</div>
+      <ul class="plan-features">
+        <li>Verified supplier profile</li><li>Product listing (up to 5)</li><li>Access to buyer network</li><li>Basic price analytics</li>
+      </ul>
+      <button class="btn-primary" style="width:100%" onclick="document.getElementById('subscribe').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    </div>
+    <div class="plan featured">
+      <div class="plan-badge">Most Popular</div>
+      <div class="plan-name">Business</div>
+      <div class="plan-price" id="price-business">₦4,500<span id="per-business"> / month</span></div>
+      <div class="plan-desc">For processors, aggregators, and institutional buyers who need volume and consistency.</div>
+      <ul class="plan-features">
+        <li>Everything in Supplier</li><li>Unlimited product listings</li><li>Trade matching engine</li><li>Escrow & payment tools</li><li>Logistics coordination</li>
+      </ul>
+      <button class="btn-primary" style="width:100%" onclick="document.getElementById('subscribe').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    </div>
+    <div class="plan">
+      <div class="plan-name">Export Pro</div>
+      <div class="plan-price" id="price-export">₦8,500<span id="per-export"> / month</span></div>
+      <div class="plan-desc">For export aggregators and large processors targeting global markets.</div>
+      <ul class="plan-features">
+        <li>Everything in Business</li><li>Export documentation support</li><li>Full traceability reports</li><li>Market intelligence data</li><li>Priority support</li>
+      </ul>
+      <button class="btn-primary" style="width:100%" onclick="document.getElementById('subscribe').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="wrap" id="subscribe">
+  <div class="form-box">
+    <h2>Get Early Access</h2>
+    <p class="form-desc">Be among the first to join AquaBridge Africa and shape the future of aquatic trade in the Niger Delta.</p>
+    <div class="field"><label>Full Name</label><input type="text" id="f-name" placeholder="Your full name"/></div>
+    <div class="field"><label>Email Address</label><input type="email" id="f-email" placeholder="your@email.com"/></div>
+    <div class="field"><label>Phone Number</label><input type="tel" id="f-phone" placeholder="+234 ..."/></div>
+    <div class="field"><label>I am a...</label>
+      <select id="f-role"><option value="">Select your role</option><option>Marine Fisher</option><option>Aquaculture Farmer</option><option>Processor</option><option>Institutional Buyer</option><option>Export Aggregator</option><option>Feed Producer</option><option>Investor</option></select>
+    </div>
+    <div class="field"><label>Preferred Plan</label>
+      <select id="f-plan"><option value="">Select a plan</option><option>Supplier — ₦2,000/month</option><option>Business — ₦4,500/month</option><option>Export Pro — ₦8,500/month</option></select>
+    </div>
+    <button class="ab-submit" id="submitBtn" onclick="handleSubmit()">Request Early Access</button>
+    <div class="success-msg" id="success-msg">You're on the list! We'll be in touch very soon.</div>
+  </div>
+</section>
+
+<footer>&copy; 2025 AquaBridge Africa. Digitizing the Niger Delta's aquatic economy.</footer>
+
+<script>
+let isYearly=false;
+const prices={supplier:{monthly:'₦2,000',yearly:'₦19,200'},business:{monthly:'₦4,500',yearly:'₦43,200'},export:{monthly:'₦8,500',yearly:'₦81,600'}};
+function toggleBilling(){
+  isYearly=!isYearly;
+  document.getElementById('billingToggle').classList.toggle('yearly',isYearly);
+  const per=isYearly?' / year':' / month';
+  const mode=isYearly?'yearly':'monthly';
+  ['supplier','business','export'].forEach(p=>{
+    document.getElementById('price-'+p).childNodes[0].textContent=prices[p][mode];
+    document.getElementById('per-'+p).textContent=per;
+  });
+  const ml=document.getElementById('lbl-monthly'),yl=document.getElementById('lbl-yearly');
+  ml.style.color=isYearly?'rgba(181,212,244,0.5)':'#E8F4FD';ml.style.fontWeight=isYearly?'300':'500';
+  yl.style.color=isYearly?'#E8F4FD':'rgba(181,212,244,0.5)';yl.style.fontWeight=isYearly?'500':'300';
+}
+function handleSubmit(){
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const role=document.getElementById('f-role').value;
+  const plan=document.getElementById('f-plan').value;
+  if(!name||!email||!role||!plan){alert('Please fill in all fields to continue.');return;}
+  document.getElementById('success-msg').style.display='block';
+  const btn=document.getElementById('submitBtn');
+  btn.textContent='Request Sent!';btn.style.background='#0F6E56';
+}
+</script>
+</body>
+</html>
